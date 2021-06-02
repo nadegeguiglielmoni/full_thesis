@@ -5,7 +5,8 @@
 \section{Introduction}
 
 Chaetognaths, commonly known as arrow worms, are transparent marine predators widely distributed all over the oceans and at various depths, although most species are found at low depth \cite{alvarino1964bathymetric}. They are characterized by a transparent and elongated body, with one or two pairs of lateral fins, and one caudal fin, a head with hooks and a size ranging from a few millimeters to several centimeters \cite{ghirardelli1969}. Current chaetognath species are divided into two orders depending on the presence of transversal muscles, or phragms: Phragmophora and Aphragmophora. The whole phylum now encompasses about 150 species. They form an enigmatic clade whose phylogenetic position is still being discussed. Chaetognaths were initially considered as deuterostomians, due to their development, but analyses of 18S rDNA rejected this hypothesis \cite{telford1993phylogenetic,wada1994details} and further brought support to the Phragmophora and Aphragmophora branches \cite{telford1997evolution}. Later, Nielsen suggested that chaetognaths belonged to the clade Gnathifera \cite{nielsen2011}, which gathers Gnathostomulida, Micrognathozoa and Rotifera. This hypothesis was supported by a recent transcriptome analysis of ten chaetognath species \cite{marletaz2019new}.  \\
-To this day, there is no genome assembly available for the whole phylum Chaetognatha, although this resource could resolve their phylogenetic position. I assembled the genome of the species \textit{Flaccisagitta enflata}, which was first described by Grassi in 1881; it belongs to the order Aphragmophora and the family Sagittidae. It is epipelagic and present across all oceans in warmer waters \cite{michel1984}. This species was selected based on specimen sizes (up to 2.5 cm), to avoid pooling individuals for sequencing, and its moderate genome size, estimated to 0.71 picograms (pg) \cite{animal_genome_size}. \\
+
+To this day, there is no genome assembly available for the whole phylum Chaetognatha, although this resource could resolve their phylogenetic position. I assembled the genome of the species \textit{Flaccisagitta enflata}, which was first described by Grassi in 1881; it belongs to the order Aphragmophora and the family Sagittidae. It is epipelagic and present across all oceans in warmer waters \cite{michel1984}. This species was selected based on specimen sizes (up to 2.5 cm), to avoid pooling individuals for sequencing, and its moderate genome size, estimated to 0.71 pg \cite{animal_genome_size}. \\
 
 \section{Material \& Method}
 
@@ -15,10 +16,11 @@ Chaetognaths were collected around the island of Curaçao after sunset from Octo
 
 \subsection{High-molecular-weight DNA extraction}
 
-One 2-cm individual preserved in ethanol was incubated in 180 {\textmu}L of CTAB buffer (described in Table \ref{tab:ctab}) and 25 µL of proteinase K for 3 hours at 60{\degree}C and 300 rpm. The lysed sample was purified with phenol-chloroform-isoamyl alcohol 25:24:1, chloroform-isoamyl alcohol 24:1 and with AMPure XP beads. I obtained 2.5 µg of DNA with OD260/280 = 1.95 and OD260/230 = 1.95.
+One 2-cm individual preserved in ethanol was incubated in 180 {\textmu}L of CTAB buffer (described in Table \ref{tab:ctab}) and 25 {\textmu}L of proteinase K for 3 hours at 60{\degree}C and 300 rpm. The lysed sample was purified with phenol-chloroform-isoamyl alcohol 25:24:1, chloroform-isoamyl alcohol 24:1 and with AMPure XP beads. I obtained 2.5 {\textmu}g of DNA with OD260/280 = 1.95 and OD260/230 = 1.95.
 
 \begin{table}[H]
 \centering
+\caption{Composition of CTAB buffer.}
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{Solution} & \textbf{Stock concentration} & \textbf{Volume for 2.45 mL} \\
@@ -32,7 +34,6 @@ CTAB & 10\% & 500 {\textmu}L \\
 {\textbeta}-mercaptoethanol & - & 25 {\textmu}L \\
 \hline
 \end{tabular}
-\caption{Composition of CTAB buffer.}
 \label{tab:ctab}
 \end{table}
 
@@ -187,5 +188,7 @@ The mapping rate of Hi-C reads was low for both FEv1 and FEv2: only 37\% of the 
 \section{Discussion}
 
 The genome of \textit{Flaccisagitta enflata} posed a challenge on several aspects. The amount of DNA that could be extracted from one specimen was too low to run all analysis on a single individual, but it was however sufficient to avoid pooling individuals for long-read sequencing or for Hi-C sequencing. First analysis showed that it was even more desirable to assemble the contigs from only one individual as the genome has a high heterozygosity; thus, a pool of highly divergent individuals would have further hindered the assembly. Using a second individual for Hi-C sequencing is a likely cause for the low mapping rate, due to the variability from one specimen to another. Besides, the collapsed assembly only represents one haplotype for all heterozygous regions; as this genome has a high heterozygosity, many Hi-C reads may fail to map to the missing haplotypes. Considering the level of heterozygosity, a diploid assembly would have been a more complete representation. Such assembly is possible when combining short and long reads, as for the Ratatosk-Canu assembly, but phasing with Hi-C is impossible in this case as the datasets were generated from different specimens. \\
+
 Despite these difficulties, the FEv1 and FEv2 assemblies reached high contiguity and completeness. The draft long-read assemblies had a relatively small N50, which may be to the numerous heterozygous regions causing unresolved bubbles in the assembly graphs and leading to breaks. Still, Hi-C scaffolding with instaGRAAL brought these assemblies to chromosome level; although no karyotype is available for this species, FEv1 and FEv2 both converged towards 9 chromosome-level scaffolds. \\
+
 This study will serve as a basis for chaetognath genomics, since this is the first chaetognath assembly. Future phylogenomic analyses may shed light on the puzzling position of this clade, and bring insights into its evolution. In addition, the methods used for this project should facilitate new chaetognaths assemblies as it provides resources for high-molecular-weight DNA extraction, Nanopore sequencing, Hi-C sequencing, and assembly.

@@ -129,7 +129,7 @@
           bmargin=3cm,
           bindingoffset=0cm}
 
-\fancypagestyle{plain}{
+\fancypagestyle{thesis}{
   \fancyhf{}
 
   \renewcommand{\headrulewidth}{0.5pt}
@@ -150,7 +150,7 @@
   \fancyfoot[C]{\thepage}
 }
 
-\pagestyle{plain}
+\pagestyle{thesis}
 
 % -----------------------------------------------------------------------------
 

@@ -1,25 +1,24 @@
 % write your paper in here
-
+\newenvironment{suppsection}{
 \newcommand{\beginsupplement}{%
         \setcounter{table}{0}
         \renewcommand{\thetable}{S\arabic{table}}%
         \setcounter{figure}{0}
         \renewcommand{\thefigure}{S\arabic{figure}}%
      }
+}
 
 \chapter{Benchmark of long-read assemblers on the genome of the bdelloid rotifer \textit{Adineta vaga}}
 
 Long reads have made highly contiguous assemblies accessible for all genomes, but most long-read assemblers aim to produce a haploid assembly, regardless of the actual degree of ploidy (haploid, diploid or polyploid) of the genome being assembled. To obtain haploid assemblies from diploid or polyploid genomes, homologous chromosomes need to be collapsed into a single sequence. This process is straightforward for homozygous regions, but more challenging for heterozygous regions as the assembler needs to find a consensus between haplotypes or select one to represent the region. Collapsing haplotypes is especially challenging for non-model diploid or polyploid genomes, as they often display variable levels of heterozygosity across their genomes. \\
 
-Long-read assemblers have proven efficient at generating assemblies with high contiguity and completeness on low-heterozygosity genome, but they are rarely tested on non-model genomes, and it is unclear how well they can deal with higher levels of heterozygosity. To fill this gap, I designed a benchmark of seven long-read assemblers, namely Canu \cite{canu}, Flye \cite{flye}, NextDenovo \cite{nextdenovo}, Ra \cite{ra}, Raven \cite{raven}, Shasta \cite{shasta} and wtdbg2 \cite{wtdbg2}. I tested these assemblers on the genome of a non-model diploid organism, \textit{Adineta vaga}, for which high-coverage sequencing datasets of both Pacific Biosciences (PacBio) and Oxford Nanopore Technologies (Nanopore) low-accuracy long reads were available. I defined a thorough evaluation strategy to identify the best haploid assemblies, based on assembly size, contiguity, completeness, and a new metric of haploidy that was implemented in the tool HapPy. \\
+I designed a benchmark of seven long-read assemblers, namely Canu \cite{canu}, Flye \cite{flye}, NextDenovo \cite{nextdenovo}, Ra \cite{ra}, Raven \cite{raven}, Shasta \cite{shasta} and wtdbg2 \cite{wtdbg2}. I tested these assemblers on the genome of a non-model diploid organism, \textit{Adineta vaga}, for which high-coverage sequencing datasets of both PacBio and Nanopore low-accuracy long reads were available. I investigated the improvement of haplotype-collapsing when combining these assemblers with pre-assembly read filtering and post-assembly haplotig purging? I defined a thorough evaluation strategy to identify the best haploid assemblies, based on assembly size, contiguity, completeness, and a new metric of haploidy that was implemented in the tool HapPy. I also evaluated the impact of sequencing depth on haplotype collapsing and overall assembly quality, and found that most assemblers were optimized for a sequencing depth of 40X. A higher sequencing depth would not necessarily improve the assemblies but would rather lead to more uncollapsed haplotypes. \\
 
-I first focused on assemblies of the full PacBio or Nanopore datasets and I found that two assemblers, Ra and wtdbg2, produced contigs with less remaining uncollapsed haplotypes. Second, I assembled only a subset of reads, based on their length exclusively, or on both length and quality with Filtlong \cite{filtlong}. I found that this strategy could improve haplotype-collapsing for some assemblers, and increase contiguity and completeness. Third, I tested three haplotig-purging tools, HaploMerger2 \cite{haplomerger2}, purge\_dups \cite{purge_dups} and Purge Haplotigs \cite{purge_haplotigs}, to evaluate how well they could remove haplotigs and more generally how they would improve the assemblies. Finally, I tested together read filtering and/or haplotig-purging tools and found that combining read filtering and purge\_dups or purge\_haplotigs, or combining purge\_dups and purge\_haplotigs, could lead to assemblies with high contiguity, completeness, and reduced uncollapsed haplotypes. \\
+I initiated this benchmark to evaluate how long-read assemblers behaved on a small non-model eukaryote genome, and applied these strategies in several assembly projects for larger genomes, including \textit{Astrangia poculata} and \textit{Flaccisagitta enflata}. \\
 
-I evaluated the impact of sequencing depth on haplotype collapsing and overall assembly quality. I found that most assemblers were optimized for a sequencing depth of 40X, and that a higher sequencing depth would not necessarily improve the assemblies but would rather lead to more uncollapsed haplotypes. \\
+\includepdf[pages=-, pagecommand={}]{articles/benchmark.pdf}
 
-The end purpose of this benchmark is to provide users with a methodology to obtain haploid assemblies of non-model eukaryote organisms with high contiguity and completeness, and that suit their computational requirements. I initiated this benchmark to evaluate how long read assemblers behaved on a eukaryote genome, as there was only one benchmark available on bacteria. I used these strategies in several genome assembly projects to obtain properly collapsed haploid assemblies. \\
-
-%\includepdf[pages=-, pagecommand={}]{articles/benchmark.pdf}
+\begin{suppsection}
 
 \beginsupplement
 
@@ -569,3 +568,5 @@ Illumina 2*250 bp & 30 bp & 11.4 Gb & 250 bp \\
 \end{tabular}
 \label{tab:datasets}
 \end{table}
+
+\end{suppsection}
